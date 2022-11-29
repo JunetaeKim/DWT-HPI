@@ -9,7 +9,7 @@ An interpretable deep learning model based on discrete wavelet transforms to pre
 
 ## Overal Descriptions
 ### Data
-Since the data used in research cannot be disclosed due to policy, simulated data can be used to train the proposed model and perform post-hoc analysis. 
+Since the data used in our research cannot be disclosed due to policy, simulated data may be used to train the proposed model and perform post-hoc analysis. 
 Therefore, we provide code to generate simulated data in [DataGeneration.ipynb](https://github.com/JunetaeKim/DWT-HPI/blob/main/DataSimulation/DataGeneration.ipynb) in the [DataSimulation](https://github.com/JunetaeKim/DWT-HPI/tree/main/DataSimulation) folder.
 The generated data is stored in the [ProcessedData](https://github.com/JunetaeKim/DWT-HPI/tree/main/ProcessedData) folder.
 
