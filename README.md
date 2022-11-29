@@ -32,8 +32,10 @@ We noticed that the arguments of shap.GradientExplainer are slightly different d
 We wrote the model development code in a hackish way. In other words, in Tensorflow, custom layers can be created in a subclassing method, which is the standard way. However, this way places the weight matrices inside the custom layer class, which may limit flexible debugging and make it difficult for new readers to understand the code from a procedural perspective. Thus, we wrote the code to enable flexible operation by defining the weight matrices in a custom layer and returning them as Keras Symbolic Tensors without any operation inside the custom layer. Anyone can rewrite the code of this model in a standard way (i.e. overriding class functions inherited from Tensorflow) or extend it with other deep learning development tools such as pytorch.
 
 
-
-
+## Development Contributorship
+[Junetae Kim](https://github.com/JunetaeKim) developed, trained, and tuned the main- and ablation models. 
+[Eugene Hwang](https://github.com/joyce0215) tuned the main- and ablation models, and conducted experiments on model interpretability, performed benchmarking tests.
+[Jinyoung Kim](https://github.com/sacross93) refactored and structured the code.
 
 
 
