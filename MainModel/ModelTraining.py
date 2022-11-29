@@ -14,11 +14,6 @@ from tensorflow.keras import regularizers
 from tensorflow.keras.models import Model
 from tensorflow.keras.callbacks import ModelCheckpoint,EarlyStopping, Callback
 from tensorflow.keras.optimizers import Adam
-from tensorflow.keras import backend as K,losses
-
-from tensorflow_probability import distributions as tfd
-import tensorflow_probability as tfp
-
 
 class LossHistory(tf.keras.callbacks.Callback):
     def on_train_begin(self,logs={}):
@@ -63,8 +58,39 @@ config.gpu_options.allow_growth = True
 # Only allow a total of half the GPU memory to be allocated
 config.gpu_options.per_process_gpu_memory_fraction = 0.98
 # Create a session with the above options specified.
-tf.compat.v1.keras.backend.set_session(tf.compat.v1.Session(config=config))     
+tf.compat.v1.keras.backend.set_session(tf.compat.v1.Session(config=config))
 
+
+b = 0.08 # Transition band, as a fraction of the sampling rate (in (0, 0.5)).
+N = int(np.ceil((4 / b)))
+if not N % 2:  # Make sure that N is odd.
+    N += 1  
+RanVar = tf.constant(np.arange(N), dtype=tf.float32)
+
+# Intergration of duplicated functions in ModelTraining.py and Main Result-SIM.ipynb
+def FilterGen (FC):
+    # Sinc function
+    X = (2 * FC * (RanVar[None] - (N - 1) / 2))
+    X = tf.where(X == 0, K.epsilon(), X)
+    SinF = tf.sin(np.pi*X)/(np.pi*X)
+
+    # Black man window
+    BW = 0.42 - 0.5 * tf.math.cos(2 * np.pi * RanVar / (N - 1)) +  0.08 * tf.math.cos(4 * np.pi * RanVar / (N - 1))
+
+    SinFBW = SinF * BW
+    LP = SinFBW /  K.sum(SinFBW, axis=-1, keepdims=True)
+    HP = -LP
+    TmpZeros = tf.zeros((N - 1) // 2)
+    TmpOnes = tf.ones(1)
+    AddOne = tf.concat([TmpZeros,TmpOnes,TmpZeros], axis=0)
+    HP += AddOne
+
+    return LP, HP
+
+def DownSampling (ToDown):
+    if ToDown.shape[1] % 2 != 0: 
+        ToDown = tf.concat([K.mean(ToDown[:, :2], axis=1, keepdims=True), ToDown[:, 2:]], axis=1)
+    return K.mean(tf.signal.frame(ToDown[:,:,0], 2,2, axis=1), axis=-1)   
 
 
 if __name__ == "__main__":
@@ -75,49 +101,21 @@ if __name__ == "__main__":
     TrainOut = np.load('../ProcessedData/HypoOut_Train.npy',allow_pickle=True)
     ValInp = np.load('../ProcessedData/ABPInp_Val.npy',allow_pickle=True)
     ValOut = np.load('../ProcessedData/HypoOut_Val.npy',allow_pickle=True)
-
+    
     strategy = tf.distribute.MirroredStrategy(cross_device_ops=tf.distribute.HierarchicalCopyAllReduce()) 
     with strategy.scope():
-
-    
-        def FilterGen (FC):
-
-            # Sinc function
-            X = (2 * FC * (RanVar[None] - (N - 1) / 2))
-            X = tf.where(X == 0, K.epsilon(), X)
-            SinF = tf.sin(np.pi*X)/(np.pi*X)
-
-            # Black man window
-            BW = 0.42 - 0.5 * tf.math.cos(2 * np.pi * RanVar / (N - 1)) +  0.08 * tf.math.cos(4 * np.pi * RanVar / (N - 1))
-
-            SinFBW = SinF * BW
-            LP = SinFBW /  K.sum(SinFBW, axis=-1, keepdims=True)
-            HP = -LP
-            TmpZeros = tf.zeros((N - 1) // 2)
-            TmpOnes = tf.ones(1)
-            AddOne = tf.concat([TmpZeros,TmpOnes,TmpZeros], axis=0)
-            HP += AddOne
-
-            return LP, HP
-
-
-        def DownSampling (ToDown):
-            if ToDown.shape[1] % 2 != 0: 
-                ToDown = tf.concat([K.mean(ToDown[:, :2], axis=1, keepdims=True), ToDown[:, 2:]], axis=1)
-            return K.mean(tf.signal.frame(ToDown[:,:,0], 2,2, axis=1), axis=-1)   
-        
 
         Shapelet1Size = 30
         PaddSideForSim = 12
         FrameSize = 50
         AttSize = 5
 
-        b = 0.08 
-        N = int(np.ceil((4 / b)))
-        if not N % 2:  
-            N += 1  
-        RanVar = tf.constant(np.arange(N), dtype=tf.float32)
-        PaddSideForConv = (N-1)//2
+#         b = 0.08 
+#         N = int(np.ceil((4 / b)))
+#         if not N % 2:  
+#             N += 1  
+#         RanVar = tf.constant(np.arange(N), dtype=tf.float32)
+#         PaddSideForConv = (N-1)//2
 
 
         InputVec = Input(shape=(9000), name='Input')
