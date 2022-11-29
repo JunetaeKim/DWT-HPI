@@ -1,6 +1,9 @@
 # DWT-HPI
 An interpretable deep learning model based on discrete wavelet transforms to predict intraoperative hypotension.
 
+<img src="https://github.com/JunetaeKim/DWT-HPI/blob/main/Figures/ModelStructure.jpg" width=80% height=80%>
+<img src="https://github.com/JunetaeKim/DWT-HPI/blob/main/Figures/ScenarioBasedGuideline.jpg" width=60% height=60%>
+
 ## Overal Descriptions
 ### Data
 Since the data used in research cannot be disclosed due to policy, simulated data can be used to train the proposed model and perform post-hoc analysis. 
@@ -36,9 +39,4 @@ We wrote the model development code in a hackish way. In other words, in Tensorf
 [Junetae Kim](https://github.com/JunetaeKim) developed, trained, and tuned the main- and ablation models. 
 [Eugene Hwang](https://github.com/joyce0215) tuned the main- and ablation models, and conducted experiments on model interpretability, performed benchmarking tests, and visualized scenario-based guidelines. 
 [Jinyoung Kim](https://github.com/sacross93) refactored and structured the code.
-
-
-
-
-
 
