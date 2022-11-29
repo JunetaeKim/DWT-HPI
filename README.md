@@ -27,7 +27,7 @@ The file given in the folder is the results of training the model based on the r
 ### Post-hoc Analysis
 Post-hoc analysis involves traditional statistical analysis and SHAP analysis to evaluate the interpretabililty of the proposed model.
 [MainResult.ipynb](https://github.com/JunetaeKim/DWT-HPI/blob/main/MainResult.ipynb) shows the results based on the actual data used in the study, but is provided for read-only purposes as the data cannot be disclosed.
-As an alternative, we have provided an environment for performing post hoc analyzes based on simulated data via [MainResultSIM.ipynb](https://github.com/JunetaeKim/DWT-HPI/blob/main/MainResultSIM.ipynb).
+As an alternative, we have provided an environment for performing post-hoc analyes based on simulated data via [MainResultSIM.ipynb](https://github.com/JunetaeKim/DWT-HPI/blob/main/MainResultSIM.ipynb).
 The weight of the model learned by the researcher can be used by loading the given file in the [ModelResults](https://github.com/JunetaeKim/DWT-HPI/tree/main/ModelResults) folder.
 That file and the one given in MainModel/Logs are identical.
 
