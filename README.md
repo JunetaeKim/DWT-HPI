@@ -1,7 +1,7 @@
 # DWT-HPI
 An interpretable deep learning model based on discrete wavelet transforms to predict intraoperative hypotension.
 
-## Overal Description
+## Overal Descriptions
 ### Data
 Since the data used in research cannot be opened due to policy, simulated data can be used for learning and post-analysis of the proposed model. 
 Therefore, we provide code to generate simulated data in [DataGeneration.ipynb](https://github.com/JunetaeKim/DWT-HPI/blob/main/DataSimulation/DataGeneration.ipynb) in the [DataSimulation](https://github.com/JunetaeKim/DWT-HPI/tree/main/DataSimulation) folder.
