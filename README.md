@@ -2,7 +2,7 @@
 An interpretable deep learning model based on discrete wavelet transforms to predict intraoperative hypotension.
 
 <img src="https://github.com/JunetaeKim/DWT-HPI/blob/main/Figures/ModelStructure.jpg" width=80% height=80%>
-<img src="https://github.com/JunetaeKim/DWT-HPI/blob/main/Figures/ScenarioBasedGuideline.jpg" width=60% height=60%>
+<img src="https://github.com/JunetaeKim/DWT-HPI/blob/main/Figures/ScenarioBasedGuideline.jpg" width=70% height=70%>
 
 ## Overal Descriptions
 ### Data
