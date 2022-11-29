@@ -26,8 +26,13 @@ The weight of the model learned by the researcher can be used by loading the giv
 That file and the one given in MainModel/Logs are identical.
 
 ## Notification
-The models in this study were written and tested based on tensorflow(version==2.4 and 2.10.0), tensorflow-probability(version==0.12.1 and 0.18.0) and SHAP(version==0.40.0 and 0.41.0).
+The models in this study were written and tested based on tensorflow(version==2.4.0 and 2.10.0), tensorflow-probability(version==0.12.1 and 0.18.0) and SHAP(version==0.40.0 and 0.41.0).
 We noticed that the arguments of shap.GradientExplainer are slightly different depending on the version of the SHAP package, so be sure to check the instructions in the [SHAP](https://shap.readthedocs.io/en/latest/) package.
+
+We wrote the model development code in a hackish way. In other words, in Tensorflow, custom layers can be created in a subclassing method, which is the standard way. However, this way places the weight matrices inside the custom layer class, which may limit flexible debugging and make it difficult for new readers to understand the code from a procedural perspective. Thus, we wrote the code to enable flexible operation by defining the weight matrices in a custom layer and returning them as Keras Symbolic Tensors.
+
+
+
 
 
 
