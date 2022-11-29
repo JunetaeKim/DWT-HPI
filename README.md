@@ -34,7 +34,7 @@ We wrote the model development code in a hackish way. In other words, in Tensorf
 
 ## Development Contributorship
 [Junetae Kim](https://github.com/JunetaeKim) developed, trained, and tuned the main- and ablation models. 
-[Eugene Hwang](https://github.com/joyce0215) tuned the main- and ablation models, and conducted experiments on model interpretability, and performed benchmarking tests. 
+[Eugene Hwang](https://github.com/joyce0215) tuned the main- and ablation models, and conducted experiments on model interpretability, performed benchmarking tests, and visualized scenario-based guidelines. 
 [Jinyoung Kim](https://github.com/sacross93) refactored and structured the code.
 
 
