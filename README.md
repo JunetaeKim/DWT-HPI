@@ -3,7 +3,7 @@ An interpretable deep learning model based on discrete wavelet transforms to pre
 
 ## Overal Descriptions
 ### Data
-Since the data used in research cannot be opened due to policy, simulated data can be used for learning and post-analysis of the proposed model. 
+Since the data used in research cannot be disclosed due to policy, simulated data can be used to train the proposed model and perform post-hoc analysis. 
 Therefore, we provide code to generate simulated data in [DataGeneration.ipynb](https://github.com/JunetaeKim/DWT-HPI/blob/main/DataSimulation/DataGeneration.ipynb) in the [DataSimulation](https://github.com/JunetaeKim/DWT-HPI/tree/main/DataSimulation) folder.
 The generated data is stored in the [ProcessedData](https://github.com/JunetaeKim/DWT-HPI/tree/main/ProcessedData) folder.
 
@@ -24,4 +24,11 @@ Post-hoc analysis involves traditional statistical analysis and SHAP analysis to
 As an alternative, we have provided an environment for performing post hoc analyzes based on simulated data via [MainResultSIM.ipynb](https://github.com/JunetaeKim/DWT-HPI/blob/main/MainResultSIM.ipynb).
 The weight of the model learned by the researcher can be used by loading the given file in the [ModelResults](https://github.com/JunetaeKim/DWT-HPI/tree/main/ModelResults) folder.
 That file and the one given in MainModel/Logs are identical.
+
+## Notification
+The models in this study were written and tested based on tensorflow(version==2.4 and 2.10.0), tensorflow-probability(version==0.12.1 and 0.18.0) and SHAP(version==0.40.0 and 0.41.0).
+We noticed that the arguments of shap.GradientExplainer are slightly different depending on the version of the SHAP package, so be sure to check the instructions in the [SHAP](https://shap.readthedocs.io/en/latest/) package.
+
+
+
 
