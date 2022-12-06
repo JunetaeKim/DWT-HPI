@@ -1,6 +1,6 @@
 # DWT-HPI
 An interpretable deep learning model based on discrete wavelet transforms to predict intraoperative hypotension.
-The research paper about this model is currently under 2nd round review at [IEEE Transactions on Neural Networks and Learning Systems](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385).
+The research paper about this model is currently under review at [IEEE Transactions on Neural Networks and Learning Systems](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385).
 ### Model Structures
 <img src="https://github.com/JunetaeKim/DWT-HPI/blob/main/Figures/ModelStructure.jpg" width=80% height=80%>
 
