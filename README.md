@@ -1,5 +1,5 @@
 # DWT-HPI
-An interpretable deep learning model based on discrete wavelet transforms to predict intraoperative hypotension. The research paper on this model is currently under review at [IEEE Transactions on Neural Networks and Learning Systems](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=5962385).
+An interpretable deep learning model based on discrete wavelet transforms to predict intraoperative hypotension. The research paper on this model is currently under review at [IEEE Transactions on Neural Networks and Learning Systems](https://www.techrxiv.org/articles/preprint/Intraoperative_Hypotension_Prediction_Based_on_Features_Automatically_Generated_Within_an_Interpretable_Deep_Learning_Model/21748085).
 ### Model Structures
 <img src="https://github.com/JunetaeKim/DWT-HPI/blob/main/Figures/ModelStructure.jpg" width=80% height=80%>
 
@@ -10,7 +10,6 @@ An interpretable deep learning model based on discrete wavelet transforms to pre
 ### Data
 Since the data used in our research cannot be disclosed due to policy constraints, simulated data may be used to train the proposed model and perform post-hoc analysis. Therefore, we provide code to generate simulated data in [DataGeneration.ipynb](https://github.com/JunetaeKim/DWT-HPI/blob/main/DataSimulation/DataGeneration.ipynb) in the [DataSimulation](https://github.com/JunetaeKim/DWT-HPI/tree/main/DataSimulation) folder.
 The generated data are stored in the [ProcessedData](https://github.com/JunetaeKim/DWT-HPI/tree/main/ProcessedData) folder.
-
 
 ### Main Study
 The source codes for developing the main model and training the model are contained in [ModelTraining.py](https://github.com/JunetaeKim/DWT-HPI/blob/main/MainModel/ModelTraining.py) in the [MainModel](https://github.com/JunetaeKim/DWT-HPI/tree/main/MainModel) folder.
