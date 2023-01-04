@@ -34,6 +34,7 @@ The models in this study were written and tested on Tensorflow (version==2.4.0 a
 We noticed that the arguments of shap.GradientExplainer are slightly different depending on the version of the SHAP package; therefore, be sure to check the instructions in the [SHAP](https://shap.readthedocs.io/en/latest/) package.
 
 We wrote the model development code in a hackish way. In other words, in Tensorflow, custom layers can be created in a subclassing method, which is the standard way. However, this way places the weight matrices inside the custom layer class, which may limit flexible debugging and make it difficult for new readers to understand the code from a procedural perspective. Thus, we wrote the code to enable flexible operation by defining the weight matrices in a custom layer and returning them as Keras Symbolic Tensors without any operation inside the custom layer. 
+
 With the permission of the authors (since the paper is currently under review), you can rewrite the code of this model in a standard way (i.e. overriding class functions inherited from Tensorflow.keras.layers.Layer) or extend it with other deep learning development tools such as pytorch.
 
 
