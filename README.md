@@ -39,7 +39,7 @@ With the permission of the authors (since the paper is currently under review), 
 
 
 ## Development Contributorship
-[Junetae Kim](https://github.com/JunetaeKim) developed, trained, and tuned the main- and ablation models. 
+[Junetae Kim](https://github.com/JunetaeKim) developed, trained, and tuned the main- and ablation models, and performed benchmarking tests. 
 [Eugene Hwang](https://github.com/joyce0215) tuned the main- and ablation models, conducted experiments on model interpretability, performed benchmarking tests, and visualized a scenario-based guideline. 
 [Jinyoung Kim](https://github.com/sacross93) refactored and structured the code.
 
