@@ -35,7 +35,7 @@ We noticed that the arguments of shap.GradientExplainer are slightly different d
 
 We wrote the model development code in a hackish way. In other words, in Tensorflow, custom layers can be created in a subclassing method, which is the standard way. However, this way places the weight matrices inside the custom layer class, which may limit flexible debugging and make it difficult for new readers to understand the code from a procedural perspective. Thus, we wrote the code to enable flexible operation by defining the weight matrices in a custom layer and returning them as Keras Symbolic Tensors without any operation inside the custom layer. 
 
-With the permission of the authors (since the paper is currently under review), you can rewrite the code of this model in a standard way (i.e. overriding class functions inherited from Tensorflow.keras.layers.Layer) or extend it with other deep learning development tools such as pytorch.
+With the permission of the authors, you can rewrite the code of this model in a standard way (i.e. overriding class functions inherited from Tensorflow.keras.layers.Layer) or extend it with other deep learning development tools such as pytorch.
 
 
 ## Development Contributorship
